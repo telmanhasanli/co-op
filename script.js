@@ -10,19 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
   const f25Content = document.getElementById('f25-content');
 
   s25Link.addEventListener('click', function(e) {
-    e.preventDefault();
-    s25Content.style.display = '';
-    f25Content.style.display = 'none';
-    // Optionally: update navbar links to point to #intro, etc. in the right visible block
-    resetNavLinks('s25');
-  });
+  e.preventDefault();
+  s25Content.style.display = '';
+  f25Content.style.display = 'none';
+  updateLinks('s25');
+  window.location.hash = '#s25';
+});
 
-  f25Link.addEventListener('click', function(e) {
-    e.preventDefault();
-    s25Content.style.display = 'none';
-    f25Content.style.display = '';
-    resetNavLinks('f25');
-  });
+f25Link.addEventListener('click', function(e) {
+  e.preventDefault();
+  s25Content.style.display = 'none';
+  f25Content.style.display = '';
+  updateLinks('f25');
+  window.location.hash = '#f25';
+});
 
   // Adjust navbar to scroll to right sections (S25 or F25)
   function resetNavLinks(term) {

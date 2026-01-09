@@ -1,15 +1,40 @@
+// Existing code here...
+
 document.addEventListener('DOMContentLoaded', function() {
-  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-  
-  dropdownToggles.forEach(toggle => {
-    const dropdown = toggle.closest('.dropdown');
-    
-    dropdown.addEventListener('show.bs.dropdown', function () {
-      toggle.classList.add('show');
-    });
-    
-    dropdown.addEventListener('hide.bs.dropdown', function () {
-      toggle.classList.remove('show');
-    });
+  // Dropdown styling code already present
+
+  // Section switching logic
+  const s25Link = document.getElementById('s25-link');
+  const f25Link = document.getElementById('f25-link');
+  const s25Content = document.getElementById('s25-content');
+  const f25Content = document.getElementById('f25-content');
+
+  s25Link.addEventListener('click', function(e) {
+    e.preventDefault();
+    s25Content.style.display = '';
+    f25Content.style.display = 'none';
+    // Optionally: update navbar links to point to #intro, etc. in the right visible block
+    resetNavLinks('s25');
   });
+
+  f25Link.addEventListener('click', function(e) {
+    e.preventDefault();
+    s25Content.style.display = 'none';
+    f25Content.style.display = '';
+    resetNavLinks('f25');
+  });
+
+  // Adjust navbar to scroll to right sections (S25 or F25)
+  function resetNavLinks(term) {
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      if (term === 's25') {
+        // remove trailing -f25 in href if present
+        link.href = link.href.replace('-f25', '');
+      } else {
+        if (!link.href.endsWith('-f25')) {
+          link.href = link.href.replace(/#([a-z]+)/i, '#$1-f25');
+        }
+      }
+    });
+  }
 });

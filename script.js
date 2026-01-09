@@ -1,41 +1,61 @@
-// Existing code here...
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Dropdown styling code already present
+  // Dropdown toggling (existing code)
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    const dropdown = toggle.closest('.dropdown');
+    dropdown.addEventListener('show.bs.dropdown', function () {
+      toggle.classList.add('show');
+    });
+    dropdown.addEventListener('hide.bs.dropdown', function () {
+      toggle.classList.remove('show');
+    });
+  });
 
-  // Section switching logic
+  // Section switching logic for Work Term Reports
   const s25Link = document.getElementById('s25-link');
   const f25Link = document.getElementById('f25-link');
   const s25Content = document.getElementById('s25-content');
   const f25Content = document.getElementById('f25-content');
 
-  s25Link.addEventListener('click', function(e) {
-  e.preventDefault();
-  s25Content.style.display = '';
-  f25Content.style.display = 'none';
-  updateLinks('s25');
-  window.location.hash = '#s25';
-});
+  // Main navbar links
+  const sectionNames = ['intro', 'employer', 'goals', 'myexperience', 'conclusion', 'ack'];
+  const navLinks = sectionNames.map(name => document.getElementById(`${name}-link`));
 
-f25Link.addEventListener('click', function(e) {
-  e.preventDefault();
-  s25Content.style.display = 'none';
-  f25Content.style.display = '';
-  updateLinks('f25');
-  window.location.hash = '#f25';
-});
-
-  // Adjust navbar to scroll to right sections (S25 or F25)
-  function resetNavLinks(term) {
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  function updateLinks(term) {
+    navLinks.forEach((link, idx) => {
       if (term === 's25') {
-        // remove trailing -f25 in href if present
-        link.href = link.href.replace('-f25', '');
+        link.setAttribute('href', `#${sectionNames[idx]}`);
       } else {
-        if (!link.href.endsWith('-f25')) {
-          link.href = link.href.replace(/#([a-z]+)/i, '#$1-f25');
-        }
+        link.setAttribute('href', `#${sectionNames[idx]}-f25`);
       }
     });
+  }
+
+  s25Link.addEventListener('click', function(e) {
+    e.preventDefault();
+    s25Content.style.display = '';
+    f25Content.style.display = 'none';
+    updateLinks('s25');
+    window.location.hash = '#s25';
+  });
+
+  f25Link.addEventListener('click', function(e) {
+    e.preventDefault();
+    s25Content.style.display = 'none';
+    f25Content.style.display = '';
+    updateLinks('f25');
+    window.location.hash = '#f25';
+  });
+
+  // On page load, display the correct section and set navbar links
+  if (window.location.hash === '#f25') {
+    s25Content.style.display = 'none';
+    f25Content.style.display = '';
+    updateLinks('f25');
+  } else {
+    // Default to S25
+    s25Content.style.display = '';
+    f25Content.style.display = 'none';
+    updateLinks('s25');
   }
 });

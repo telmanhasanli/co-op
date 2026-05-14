@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Dropdown toggling (existing code)
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
   dropdownToggles.forEach(toggle => {
     const dropdown = toggle.closest('.dropdown');
@@ -11,13 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Section switching logic for Work Term Reports
   const s25Link = document.getElementById('s25-link');
   const f25Link = document.getElementById('f25-link');
+  const w26Link = document.getElementById('w26-link');
+
   const s25Content = document.getElementById('s25-content');
   const f25Content = document.getElementById('f25-content');
+  const w26Content = document.getElementById('w26-content');
 
-  // Main navbar links
   const sectionNames = ['intro', 'employer', 'goals', 'myexperience', 'conclusion', 'ack'];
   const navLinks = sectionNames.map(name => document.getElementById(`${name}-link`));
 
@@ -26,36 +26,39 @@ document.addEventListener('DOMContentLoaded', function() {
       if (term === 's25') {
         link.setAttribute('href', `#${sectionNames[idx]}`);
       } else {
-        link.setAttribute('href', `#${sectionNames[idx]}-f25`);
+        link.setAttribute('href', `#${sectionNames[idx]}-${term}`);
       }
     });
   }
 
+  function showTerm(term) {
+    s25Content.style.display = term === 's25' ? '' : 'none';
+    f25Content.style.display = term === 'f25' ? '' : 'none';
+    w26Content.style.display = term === 'w26' ? '' : 'none';
+    updateLinks(term);
+    window.location.hash = `#${term}`;
+  }
+
   s25Link.addEventListener('click', function(e) {
     e.preventDefault();
-    s25Content.style.display = '';
-    f25Content.style.display = 'none';
-    updateLinks('s25');
-    window.location.hash = '#s25';
+    showTerm('s25');
   });
 
   f25Link.addEventListener('click', function(e) {
     e.preventDefault();
-    s25Content.style.display = 'none';
-    f25Content.style.display = '';
-    updateLinks('f25');
-    window.location.hash = '#f25';
+    showTerm('f25');
   });
 
-  // On page load, display the correct section and set navbar links
+  w26Link.addEventListener('click', function(e) {
+    e.preventDefault();
+    showTerm('w26');
+  });
+
   if (window.location.hash === '#f25') {
-    s25Content.style.display = 'none';
-    f25Content.style.display = '';
-    updateLinks('f25');
+    showTerm('f25');
+  } else if (window.location.hash === '#w26') {
+    showTerm('w26');
   } else {
-    // Default to S25
-    s25Content.style.display = '';
-    f25Content.style.display = 'none';
-    updateLinks('s25');
+    showTerm('s25');
   }
 });

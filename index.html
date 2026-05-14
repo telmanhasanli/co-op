@@ -25,6 +25,7 @@
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" id="s25-link">S25 (Flywheel/Perpetua)</a></li>
           <li><a class="dropdown-item" href="#" id="f25-link">F25 (Flywheel/Perpetua)</a></li>
+          <li><a class="dropdown-item" href="#" id="w26-link">W26 (Flywheel/Perpetua)</a></li>
         </ul>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -346,11 +347,126 @@ Overall, I feel like I've made real progress in communicating my thoughts clearl
         <p class="mt-2 text-muted">Telman at bowling social with coworkers</p>
       </div>
     </div>
+  </div>
+
+ <!-- W26 Content  -->
+ <div id="w26-content" style="display: none;">
+      <section id="intro-w26" class="mb-5">
+        <h2 class="text-primary border-bottom pb-2">Introduction</h2>
+        <p>During Winter 2026, I completed my third co-op term at Flywheel/Perpetua as a backend-focused developer. This report highlights the projects I worked 
+          on, the challenges I navigated, and the skills I developed throughout the term. Compared to my previous terms, I took on more technical ownership this 
+          time around — diving deep into backend development, investigating complex data issues, contributing to localization infrastructure, and even 
+          participating in and winning a company hackathon. This term was a strong mix of technical growth and team collaboration, and I'm proud of the 
+          contributions I was able to make.</p>
+      </section>
+      <section id="employer-w26" class="mb-5">
+        <h2 class="text-primary border-bottom pb-2">About Flywheel/Perpetua</h2>
+        <p>Flywheel/Perpetua continues to be at the forefront of e-commerce innovation, expanding its reach through strategic partnerships 
+        and technical leadership in automation. During this term, the company has launched new AI-driven analytics products and enhanced 
+        its platform for large-scale retailers.</p>
+      </section>
+      <section id="myexperience-w26" class="mb-5">
+        <h2 class="text-primary border-bottom pb-2">My Experience</h2>
+        <div class="highlight-box">
+          <strong>Languages/Technologies:</strong>
+          <span class="tech-list">Python, SQL, REST APIs, BigQuery, DataGrip, Jupyter Notebook, Contentful, Docker</span>
+        </div>
+        <div class="highlight-box">
+          <strong>Other Skills:</strong>
+          <span class="tech-list">Backend Development, Data Investigation, Database Querying, Tech Debt Cleanup, Sprint Leadership, 
+            Cross-functional Collaboration, Problem Solving, Localization Infrastructure</span>
+        </div>
+       <p>
+   My third co-op term at Flywheel/Perpetua was my most technically challenging and rewarding one yet. Building on the full-stack exposure from my previous term, I made a conscious decision to go all-in on backend development this time around. I deepened my Python skills, got seriously comfortable with SQL, and spent a lot of time running queries in DataGrip and Jupyter Notebook to investigate real production data. It was a different kind of work than I was used to, but I quickly grew to enjoy the detective-like nature of backend problem solving.
+  </p>
+  <p>
+    Some of the most interesting work I did this term involved investigating data discrepancies and missing data across our systems. One ticket had me digging through BigQuery datasets to figure out why SB segment data wasn't showing up in the Executive Dashboard, turns out the SB table simply didn't exist, and once I wrote and added the query to create it, the data populated correctly. Another investigation led me to discover that budget optimization recommendations weren't being generated because an Amazon Marketing Stream subscription had silently expired back in December. Tracing that issue across datasets and confirming the root cause, then fixing it by creating a new subscription in Jupyter Notebook, was one of those moments where everything just clicks.
+  </p>
+  <p>
+    I also got to work on a more infrastructure-level ticket, migrating hardcoded strategy text from the backend to Contentful to enable localization. This involved writing a migration script, fetching values from database tables, generating Contentful key IDs, and updating the frontend to dynamically fetch text with a database fallback. It touched multiple layers of the stack and got a shoutout from a coworker at the end of the sprint, which meant a lot.
+  </p>
+  <p>
+    Outside of pure technical work, I led a sprint for two weeks, running daily standups and keeping sprint documentation up to date. I also contributed to cleaning up technical debt by deprecating the legacy sync_status_v1 endpoint that had been unused since the team migrated to v2. And one of the unexpected highlights of the term was participating in a company-wide hackathon with my team, where I shared ideas and collaborated closely with teammates — and we ended up winning it.
+  </p>
+  <p>
+Looking back, this term pushed me well beyond my comfort zone in the best way possible. I went from being cautious around backend work to independently investigating production issues, writing data migration scripts, and contributing to meaningful features end to end. I also grew as a teammate and collaborator, and I'm leaving this term feeling more confident and excited than ever about what comes next.
+
+
+  </p>
+  <p>
+ 
+  </p>
+
+        <img src="images/hq.jpeg" alt="My W26 picture" class="profile-img mx-auto d-block">
+        <p class="mt-2 text-muted text-center">Telman at the Perpetua HQ</p>
+      </section>
+      <section id="goals-w26">
+        <h2 class="text-primary border-bottom pb-2">Work Term Goals</h2>
+        <p>
+          <span class="goal-heading">Learning Goal #1: Deepening Backend Development Expertise</span>
+          <br> 	
+This term I was fully immersed in backend development, which gave me the opportunity to grow a lot technically. I strengthened my Python skills by working on various backend tasks, and learned SQL more seriously, writing and running queries in DataGrip to investigate data discrepancies, track down missing data, and fetch values across tables. It was a great way to get comfortable navigating a real production database.
+
+Some of the more interesting work involved investigating data inconsistencies, which required digging through multiple tables, tracing how data flows through the system, and identifying where things were going wrong. I also worked on creating product subscriptions using Jupyter Notebook, which was a new experience that helped me understand how our data pipelines and backend logic tie together.
+
+Overall, this term gave me a much stronger foundation in backend development. I went from being less confident with SQL and server-side logic to independently running queries, investigating data issues, and contributing to backend features end to end. There's still a lot to learn, but I feel like I made meaningful progress toward becoming a stronger backend developer.
+        </p>
+        <p>
+          <span class="goal-heading">Learning Goal #2: Enhancing Oral Communication and Team Collaboration</span>
+          <br> This term, I had another opportunity to lead a sprint, which included facilitating standups for two weeks and keeping the sprint documentation up to date. It was a great experience in staying organized and making sure the team had clear direction throughout. At the end of the sprint, I received positive feedback from teammates on how the sprint was run, which was really encouraging.
+
+Another highlight was our team's participation in the Perpetua Spring Summit Hackathon. I actively contributed ideas and collaborated closely with teammates throughout the event and we ended up winning it. It was a great reminder of how open communication and sharing ideas freely can lead to great outcomes.
+
+This term I also tried my best to support my teammates when things got busy. When one of my coworkers had a heavy load of backend tickets, I reached out and offered to help, which I think helped keep things moving and strengthened our working relationship.
+
+Overall, I feel like I made real progress on this goal. Leading the sprint and the hackathon experience in particular pushed me out of my comfort zone and helped me grow both as a communicator and as a team player.
+        </p>
+        <p>
+          <span class="goal-heading">Learning Goal #3: Strengthening Problem-Solving Through Real-World Technical Challenges</span>
+          <br> 	
+This term gave me many opportunities to sharpen my problem-solving skills by tackling real, impactful technical challenges.
+
+One example was investigating a missing SB segment in the Executive Dashboard. Accounts running SB campaigns weren't seeing their segment data only SP, SD, and DSP were showing up. I reproduced the issue, then ran queries in BigQuery against a specific geo company ID, where I discovered the SB table simply didn't exist. Once I identified the root cause, I wrote and added a query to create the SB segments table, and the data populated correctly in the dashboard. It was an interesting end-to-end debugging experience that reinforced the importance of going straight to the data when investigating discrepancies.
+
+Another ticket involved SP Real Time Budget optimizations not being generated for a goal. Budget utilization was maxed out but no recommendations were being produced. I investigated by running queries in Jupyter Notebook and traced the issue back to December 9th, 2025 the exact date budget usage data from the Amazon Ads Advanced Tools Center dataset stopped coming in. I then checked whether we still had Amazon Marketing Stream access for that geo and confirmed the subscription had expired on that same date. The fix was straightforward once the root cause was clear, I created a new subscription for that geo in Jupyter Notebook and data started flowing again.
+
+The third challenging ticket involved moving strategy text from the backend to Contentful to support localization. The backend was hardcoding text, meaning the app couldn't support other languages. I wrote a migration script that fetched values from certain tables, generated Contentful key IDs based on a defined format, and uploaded the key-value pairs to Contentful. I also updated the frontend to fetch text dynamically using the generated keys with a fallback to database values if the Contentful fetch failed. The solution was well received and I got a shoutout from a coworker during the sprint.
+
+All three tickets pushed me to think more critically and methodically when approaching problems. Whether it was tracing missing data across BigQuery datasets, diagnosing an expired subscription, or migrating content across the stack, I got much more comfortable with not panicking when something isn't obvious and just following the trail until it makes sense. Going forward, I want to be more intentional about seeking feedback on my problem-solving approach from mentors and senior teammates so I can continue identifying blind spots and improve how I tackle complex problems.
+        </p>
+        <p>
+          <span class="goal-heading">Learning Goal #4: Improving Developer Experience Through Technical Debt Reduction</span>
+          <br> 	One of my contributions this term was the Deprecate sync status v1 endpoint ticket. Since the team had already migrated to the sync_status_v2 endpoint, the v1 endpoint was dead code, so I removed it along with all its associated tests. It was a straightforward but impactful cleanup that reduced technical debt and made the codebase easier to navigate.
+
+While this wasn't a large-scale process improvement, it reinforced the importance of keeping codebases lean and removing legacy code before it becomes a maintenance burden. Due to a high volume of feature and bug tickets throughout the term, I didn't get as much time as I would have liked to tackle more tech debt tasks. Going forward, I'd like to tackle bigger developer experience improvements like CI/CD optimizations or workflow automation.
+
+        </p>
+
+      </section>
+      <section id="conclusion-w26" class="mb-5">
+        <h2 class="text-primary border-bottom pb-2">Conclusions</h2>
+        <p></p>
+      </section>
+      <section id="ack-w26" class="mb-5">
+        <h2 class="text-primary border-bottom pb-2">Acknowledgments</h2>
+        <p>I would like to thank everyone on the Insights team for their support, encouragement, and willingness to help whenever I needed it. I'm grateful to 
+          my manager, Navneet Singh, for trusting me with meaningful projects and supporting my growth as a full-stack web developer. I also appreciate my co-op 
+          supervisor, Jacob Wadsworth, who provided valuable guidance throughout the term, and my teammate, Salman Sharif, who was always there to answer 
+          my questions regarding backend development and help me work through technical challenges. I'm thankful for the collaborative and welcoming environment at Flywheel, which made this a 
+          truly great experience.</p>
+      </section>
+      <div class="text-center mb-5">
+        <img src="images/hackathon.JPG" alt="W26 Work Term Photo" class="img-fluid rounded shadow">
+        <p class="mt-2 text-muted">Telman with the teammates after Hackathon win</p>
+      </div>
+    </div>
   </main>
 
   <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; Telman Hasanli (2025)</p>
-  </footer>
+  <p id="footer-text">&copy; Telman Hasanli (2026)</p>
+</footer>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {

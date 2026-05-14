@@ -31,11 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function showTerm(term) {
+  function showTerm(term, updateHash = true) {
     s25Content.style.display = term === 's25' ? 'block' : 'none';
     f25Content.style.display = term === 'f25' ? 'block' : 'none';
     w26Content.style.display = term === 'w26' ? 'block' : 'none';
+
     updateLinks(term);
+
+    if (updateHash) {
+      history.replaceState(null, '', `#${term}`);
+    }
   }
 
   s25Link.addEventListener('click', function (e) {
@@ -53,5 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
     showTerm('w26');
   });
 
-  showTerm('s25');
+  const hash = window.location.hash;
+
+  if (hash === '#f25') {
+    showTerm('f25', false);
+  } else if (hash === '#w26') {
+    showTerm('w26', false);
+  } else {
+    showTerm('s25', false);
+  }
 });

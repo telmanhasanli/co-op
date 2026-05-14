@@ -347,7 +347,6 @@ Overall, I feel like I've made real progress in communicating my thoughts clearl
         <p class="mt-2 text-muted">Telman at bowling social with coworkers</p>
       </div>
     </div>
-  </div>
 
  <!-- W26 Content  -->
  <div id="w26-content" style="display: none;">
@@ -397,8 +396,8 @@ Looking back, this term pushed me well beyond my comfort zone in the best way po
  
   </p>
 
-        <img src="images/hq.jpeg" alt="My W26 picture" class="profile-img mx-auto d-block">
-        <p class="mt-2 text-muted text-center">Telman at the Perpetua HQ</p>
+        <img src="images/officepic.jpeg" alt="My W26 picture" class="profile-img mx-auto d-block">
+        <p class="mt-2 text-muted text-center">Telman at the new Flywheel Toronto office</p>
       </section>
       <section id="goals-w26">
         <h2 class="text-primary border-bottom pb-2">Work Term Goals</h2>
@@ -445,7 +444,12 @@ While this wasn't a large-scale process improvement, it reinforced the importanc
       </section>
       <section id="conclusion-w26" class="mb-5">
         <h2 class="text-primary border-bottom pb-2">Conclusions</h2>
-        <p></p>
+        <p>Looking back on my Winter 2026 co-op at Flywheel/Perpetua, I'm really proud of how much I grew this term — both as a developer and as a teammate. 
+          Committing fully to backend development was the right call, and I came out of it with a much stronger foundation in Python, SQL, and data investigation 
+          than I had going in. Solving real production issues, migrating content infrastructure, and deprecating legacy code all gave me a sense of ownership 
+          that I hadn't felt as strongly in previous terms. Winning the company hackathon with my team was also an unexpected highlight that reminded me how much 
+          fun this work can be when everyone is aligned and energized. Overall, this term showed me that I'm capable of tackling complex, ambiguous problems and 
+          seeing them through — and I'm leaving feeling more confident and ready than ever for what comes next.</p>
       </section>
       <section id="ack-w26" class="mb-5">
         <h2 class="text-primary border-bottom pb-2">Acknowledgments</h2>
@@ -468,54 +472,6 @@ While this wasn't a large-scale process improvement, it reinforced the importanc
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown styling JS from your existing code
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    dropdownToggles.forEach(toggle => {
-      const dropdown = toggle.closest('.dropdown');
-      dropdown.addEventListener('show.bs.dropdown', function () {
-        toggle.classList.add('show');
-      });
-      dropdown.addEventListener('hide.bs.dropdown', function () {
-        toggle.classList.remove('show');
-      });
-    });
 
-    // Section switching logic
-    const s25Link = document.getElementById('s25-link');
-    const f25Link = document.getElementById('f25-link');
-    const s25Content = document.getElementById('s25-content');
-    const f25Content = document.getElementById('f25-content');
-
-    // Main navbar links
-    const sectionNames = ['intro', 'employer', 'goals', 'myexperience', 'conclusion', 'ack'];
-    const navLinks = sectionNames.map(name => document.getElementById(`${name}-link`));
-
-    function updateLinks(term) {
-      navLinks.forEach((link, idx) => {
-        if (term === 's25') link.setAttribute('href', `#${sectionNames[idx]}`);
-        else link.setAttribute('href', `#${sectionNames[idx]}-f25`);
-      });
-    }
-
-    s25Link.addEventListener('click', function(e) {
-      e.preventDefault();
-      s25Content.style.display = '';
-      f25Content.style.display = 'none';
-      updateLinks('s25');
-    });
-
-    f25Link.addEventListener('click', function(e) {
-      e.preventDefault();
-      s25Content.style.display = 'none';
-      f25Content.style.display = '';
-      updateLinks('f25');
-    });
-
-    // On load: user sees S25
-    updateLinks('s25');
-  });
-</script>
 </body>
 </html>

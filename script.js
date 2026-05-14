@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
   dropdownToggles.forEach(toggle => {
     const dropdown = toggle.closest('.dropdown');
@@ -24,41 +24,34 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateLinks(term) {
     navLinks.forEach((link, idx) => {
       if (term === 's25') {
-        link.setAttribute('href', `#${sectionNames[idx]}`);
+        link.href = `#${sectionNames[idx]}`;
       } else {
-        link.setAttribute('href', `#${sectionNames[idx]}-${term}`);
+        link.href = `#${sectionNames[idx]}-${term}`;
       }
     });
   }
 
   function showTerm(term) {
-    s25Content.style.display = term === 's25' ? '' : 'none';
-    f25Content.style.display = term === 'f25' ? '' : 'none';
-    w26Content.style.display = term === 'w26' ? '' : 'none';
+    s25Content.style.display = term === 's25' ? 'block' : 'none';
+    f25Content.style.display = term === 'f25' ? 'block' : 'none';
+    w26Content.style.display = term === 'w26' ? 'block' : 'none';
     updateLinks(term);
-    window.location.hash = `#${term}`;
   }
 
-  s25Link.addEventListener('click', function(e) {
+  s25Link.addEventListener('click', function (e) {
     e.preventDefault();
     showTerm('s25');
   });
 
-  f25Link.addEventListener('click', function(e) {
+  f25Link.addEventListener('click', function (e) {
     e.preventDefault();
     showTerm('f25');
   });
 
-  w26Link.addEventListener('click', function(e) {
+  w26Link.addEventListener('click', function (e) {
     e.preventDefault();
     showTerm('w26');
   });
 
-  if (window.location.hash === '#f25') {
-    showTerm('f25');
-  } else if (window.location.hash === '#w26') {
-    showTerm('w26');
-  } else {
-    showTerm('s25');
-  }
+  showTerm('s25');
 });
